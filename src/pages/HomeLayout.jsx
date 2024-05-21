@@ -2,6 +2,7 @@ import { Outlet, useLocation, useNavigation } from 'react-router-dom'
 import { GlobalLoading, Header, Navbar } from '../components'
 import Footer from './Footer'
 import Services from '../components/Services'
+import NewsLetter from '../components/NewsLetter'
 
 const HomeLayout = () => {
   const location = useLocation();
@@ -20,6 +21,7 @@ const HomeLayout = () => {
     </section>
     }
     {path === '/' &&  <Services/>}
+    {path === '/' &&  <NewsLetter/>}
     <Footer/>
     </>
   )

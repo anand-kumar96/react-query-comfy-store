@@ -26,6 +26,7 @@ import {action as checkoutAction} from './components/CheckoutForm'
 import { store } from "./store/store";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import PaymentCheckout from "./components/PaymentCheckout";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
     { path:'/checkout', element:<Checkout/>, loader:checkoutLoader(store), action:checkoutAction(store,queryClient)},
     { path:'/about', element:<About/>},
     { path:'/orders', element:<Orders/>, loader:ordersLoader(store,queryClient)},
+    { path:'/payment', element:<PaymentCheckout/>},
    ]
   },
 

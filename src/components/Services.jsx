@@ -20,7 +20,7 @@ const Services = () => {
           {services.map((service)=>{
             const{id,title,icon,text} = service
             return <article key={id} className="flex flex-col justify-center place-items-center text-center p-10 bg-primary-content rounded-lg shadow-xl">
-            <span className='flex justify-center items-center w-20 h-20 bg-primary-content rounded-full'>{icon}</span>
+            <span className='flex justify-center items-center w-20 h-20 bg-base-300 rounded-full'>{icon}</span>
             <h4 className='capitalize text-lg py-2 font-semibold tracking-wide'>{title}</h4>
             <p className='leading-6 text-start py-2'>{text}</p>
           </article>

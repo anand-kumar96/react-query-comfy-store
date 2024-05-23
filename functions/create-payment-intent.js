@@ -1,6 +1,6 @@
 // we are in node enviroment
 // see in browser=> domain/.netlify/functions/hello => http://localhost:8888/.netlify/functions/create-payment-intent
-const dotenv = require("dotenv");
+import dotenv from 'dotenv';
 dotenv.config();
 const stripe = require("stripe")(process.env.VITE_APP_STRIPE_SECRET_KEY);
 

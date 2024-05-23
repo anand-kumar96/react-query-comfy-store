@@ -1,21 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RxCrossCircled } from "react-icons/rx";
-const PaymentFailed = () => {
+const PaymentFailed = ({err}) => {
+  const navigate = useNavigate();
+  setTimeout(()=>{
+  navigate('/');
+  },5000)
   return (
-    <div className="grid gap-6 justify-center mt-10 ">
-      <div className="cart shadow-xl px-10 bg-base-100 rounded-lg">
+      <div className="cart shadow-xl px-10 bg-base-100 rounded-lg py-5">
         <RxCrossCircled className="w-16 h-16 mx-auto rounded-full text-red-500"/>
-        <div class="text-center">
-          <h3 class="md:text-2xl text-base font-semibold text-center text-red-500"> Payment Error!</h3>
-          <p class=" my-2">Your order has not been placed. Please try again later</p>
-          <p> Have a great day! </p>
-          <div class="py-10 text-center">
-            <Link to="/products"className="btn capitalize hover:btn-neutral btn-error">continue shopping </Link>
+        <div className="text-center">
+          <h3 className="md:text-2xl text-base font-semibold text-center text-red-500"> Payment Error !</h3>
+          <p className=" mt-3 text-red-400 pb-1">{err}</p>
+          <p>Your order has not been placed. Please try again later</p>
+          <p> Redirecting to Home Page shortly...</p>
+          <div className="py-4 text-center">
+            <Link to="/products"className="capitalize hover:btn-neutral text-red-500">continue shopping </Link>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

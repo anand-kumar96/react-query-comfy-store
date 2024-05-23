@@ -10,7 +10,7 @@ const Navbar = () => {
   const {numItemsInCart} = useSelector((state)=> state.cart)
   
   return (
-    <nav className ='bg-base-200'>
+    <nav className ='bg-base-200 sticky top-0 z-50'>
       <div className="navbar align-element ">
         {/*Navbar Start*/}
 

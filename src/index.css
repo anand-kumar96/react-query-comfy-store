@@ -6,4 +6,5 @@
     .align-element {
         @apply mx-auto xl:max-w-7xl max-w-6xl px-8;
     }
+      
 }

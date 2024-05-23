@@ -2,7 +2,8 @@
 // see in browser=> domain/.netlify/functions/hello => http://localhost:8888/.netlify/functions/create-payment-intent
 import dotenv from 'dotenv';
 dotenv.config();
-const stripe = require("stripe")(process.env.VITE_APP_STRIPE_SECRET_KEY);
+import Stripe from 'stripe';
+const stripe = new Stripe(process.env.VITE_APP_STRIPE_SECRET_KEY);
 
 export async function handler(event, context) {
   if (event.body) {

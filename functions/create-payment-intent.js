@@ -1,5 +1,5 @@
 // we are in node enviroment
-// see in browser=> domain/.netlify/functions/hello => http://localhost:8888/.netlify/functions/create-payment-intent
+// see in browser=> domain/.netlify/functions/create-payment-intent => http://localhost:8888/.netlify/functions/create-payment-intent
 import dotenv from 'dotenv';
 dotenv.config();
 import Stripe from 'stripe';

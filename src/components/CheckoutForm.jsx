@@ -36,7 +36,7 @@ const CheckoutForm = () => {
   let city ='';
   let postal ='';
   let state ='';
-  let country ='';
+  let country ='India';
   if(localStorage.getItem('paymentInfo')) {
    const {paymentAddress} = JSON.parse(localStorage.getItem('paymentInfo'));
    first = paymentAddress.first;
@@ -47,7 +47,6 @@ const CheckoutForm = () => {
    state = paymentAddress.state;
    country = paymentAddress.country;
   }
-
   return (
     <Form method='POST' className="flex flex-col gap-y-2">
       {/* USER DETAIL */}

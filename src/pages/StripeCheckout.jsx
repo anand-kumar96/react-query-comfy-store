@@ -99,7 +99,9 @@ const PaymentCheckoutForm = () => {
       setProcessing(false);
       setDisabled(false)
       const data = await orderPlaced();
-      setSucceeded(true)
+      if(data) {
+        setSucceeded(true)
+      }
     }
   };
 
@@ -109,7 +111,6 @@ const orderPlaced = async () => {
     Authorization:`Bearer ${user.jwt}`
   }
   const {body} = JSON.parse(localStorage.getItem('paymentInfo'))
-  console.log(body);
 try {
   const response = await customFetch.post('/orders',{data:body},{headers:headers});
 

@@ -5,7 +5,7 @@ const PaymentFailed = ({err}) => {
   const navigate = useNavigate();
   setTimeout(()=>{
   navigate('/');
-  },5000)
+  },10000)
   return (
       <div className="cart shadow-xl px-10 bg-base-100 rounded-lg py-5">
         <RxCrossCircled className="w-16 h-16 mx-auto rounded-full text-red-500"/>

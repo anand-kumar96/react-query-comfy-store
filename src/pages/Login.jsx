@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Link, redirect, useNavigate, useNavigation } from 'react-router-dom'
+import { Form, Link, redirect, useLocation, useNavigate, useNavigation } from 'react-router-dom'
 import { FormInput, SubmitBtn } from '../components'
 import { customFetch } from '../utils';
 import {loginUser} from './../features/user/userSlice'
@@ -24,12 +24,13 @@ const url = '/auth/local'
 export const action = (store) => 
   async({request}) => {
   const formData = await request.formData();
-  const data = Object.fromEntries(formData);
+  const loginData = Object.fromEntries(formData);
+  const { fromPage, ...data } = loginData;
   try {
     const response = await customFetch.post(url,data);
     store.dispatch(loginUser(response.data));
     toast.success('Logged in successfully')
-    return redirect('/')
+    return redirect(fromPage==='cart' ? '/cart' :'/')
   } catch(err) {
     console.log(err);
     let errorMessage = err?.response?.data?.error?.message || 'email or password is incorrect';
@@ -41,6 +42,8 @@ export const action = (store) =>
   }
 }
 const Login = () => {
+  const location = useLocation();
+  const fromPage = location.state?.from || 'empty';
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const navigation = useNavigation();
@@ -53,7 +56,7 @@ const Login = () => {
   })
   dispatch(loginUser(response.data));
   toast.success('welcome to guest user')
-  navigate('/')
+  navigate(fromPage === 'cart' ? '/cart':'/')
   } catch(err) {
    console.log(err);
    toast.error('guest user login error, please try again')
@@ -71,6 +74,8 @@ const Login = () => {
         label='email'
         name='identifier'
         />
+        {/* HIDDEN INPUT FIELD TO PASS PREVIOUS PAGE INFO TO ACTION */}
+        <input type="hidden" name="fromPage" value={fromPage} />
         <FormInput
         type='password'
         label='password'

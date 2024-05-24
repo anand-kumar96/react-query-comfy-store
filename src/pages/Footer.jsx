@@ -23,11 +23,14 @@ const Footer = () => {
           return (
             <nav key={index}>
               <h6 className="footer-title">{type}</h6>
-              {lists.map((item, index) => (
-                <Link to="/" key={index} className="link link-hover">
-                  {item}
-                </Link>
-              ))}
+              {lists.map((item, index) => {
+                const link = item === 'About us'?'/about':item ==='Products'?'/products':'/'
+                return (
+                  <Link to={link} key={index} className="link link-hover">
+                    {item}
+                  </Link>
+                )
+              })}
             </nav>
           );
         })}

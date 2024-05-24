@@ -23,7 +23,7 @@ const Cart = () => {
         <CartTotals text='review order details'/>
          {user ? 
          <Link to='/checkout' className="btn btn-primary btn-block mt-8 uppercase">Proceed to checkout</Link> 
-         : <Link to='/login' className="btn btn-primary btn-block mt-8 uppercase">Please login</Link>}
+         : <Link to='/login'state={{ from: "cart" }}  className="btn btn-primary btn-block mt-8 uppercase">Please login</Link>}
        </div>
     </div>
     </>
